@@ -88,15 +88,15 @@ int* parse(std::string data){
     return &parsedData[0];
 }
 
-void connect(int& portID, SerialPort *currentPort){
+void connect(int& portID, SerialPort *currentPort, int baudRate){
     std::string portName = "\\\\.\\COM";
-    currentPort = new SerialPort((portName + (char)(portID + '0')).c_str(), 115200);
+    currentPort = new SerialPort((portName + (char)(portID + '0')).c_str(), baudRate);
 
     if (!currentPort->isConnected()){
         delete currentPort;
         std::cout << "Connection unable to established at port COM" << portID << ", try again:" << std::endl;
         std::cin >> portID;
-        connect(portID, currentPort);
+        connect(portID, currentPort, baudRate);
     }else{
         std::cout << "Connected to port COM" << portID << ", keyboard starting..." << std::endl;
     }
@@ -123,12 +123,15 @@ int main(void){
     };
     int portID;
     
+    //The baudrate of the connection to the arduino, remember to change this as well as the baudrate in the arduino program
+    int baudRate = 115200;
+    
     std::string portName = "\\\\.\\COM";
     
     
     //Detect all ports that are open
     for(int i = 0; i < 10; i++){
-        currentPort = new SerialPort((portName + (char)(i + '0')).c_str(), 115200);
+        currentPort = new SerialPort((portName + (char)(i + '0')).c_str(), baudRate);
         if (currentPort->isConnected()){
             std::cout << "Device detected at port COM" << i << std::endl;
         }
@@ -139,7 +142,7 @@ int main(void){
 
     std::cout << "Which port do you want to use?" << std::endl;
     std::cin >> portID;
-    connect(portID, currentPort);
+    connect(portID, currentPort, baudRate);
     
     
     //Device connected, begin processing input and performing tasks
