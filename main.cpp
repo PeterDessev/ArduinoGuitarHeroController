@@ -54,9 +54,10 @@ void process(int* data, int controls[10]){
         }else{
             keycontrol::keyUp(controls[i], i);
         }
-    }    
+    }
+    // TODO: Add mouse functionality
     /*if(data[10]){ //Whammy Bar
-         //mouseMove(0, data[10]); //mouse?
+         //mouseMove(0, data[10]); 
     }*/
 }
 
