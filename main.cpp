@@ -1,4 +1,4 @@
-#include "SerialPort.hpp"
+#include "serialPort/SerialPort.hpp"
 #include <iostream>
 #include <sstream>
 #include <windows.h>
@@ -72,7 +72,7 @@ int* parse(std::string data){
     
     size_t pos = 0;
     data.pop_back();
-    for(int i = 0; i == i; i++){
+    while(int i = 0; i == i; i++){
         pos = data.find(delimiter);
         token = data.substr(0, pos);
         std::istringstream convert(token);
