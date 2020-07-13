@@ -45,6 +45,8 @@ $ clang++ main.cpp serialPort/SeriaPort.cpp -o controller.exe
 ## Download
 Pre-compiled binaries for version 0.1.0 are available [here](https://github.com/SnowCheetah/ArduinoGuitarHeroController/releases/tag/v0.1.0)
 
+---
+
 ## License
 >You can check out the full license [here](https://github.com/SnowCheetah/ArduinoGuitarHeroController/blob/master/LICENSE)
 
