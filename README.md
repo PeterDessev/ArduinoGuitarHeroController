@@ -37,7 +37,7 @@ To build this project, use the C++ compiler of your choice, here clang++
 
 ```
 $ cd ../ArduinoGuitarHeroController
-$ clang++ main.cpp serialPort/SeriaPort.cpp -o controller.exe
+$ clang++ main.cpp serialPort/SerialPort.cpp -o controller.exe
 ```
 
 ---
